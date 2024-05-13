@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
-import { fetchRecipe } from '../../api/recipesApi';
+import { fetchRecipe } from '../api/recipesApi';
 import { Helmet } from 'react-helmet';
-import { RecipeTags, getCuisine, getTotalCookieTime } from '../../helpers/formatter';
+import { RecipeTags, getCuisine, getTotalCookieTime } from '../helpers/formatter';
 
 function Recipe() {
   const { id } = useParams();

@@ -8,6 +8,7 @@ import { fetchRecipes } from '../api/recipesApi';
 function HomePage() {
 
   const [recipes, setRecipes] = useState([]);
+  const [isFilterOpen, setIsFilterOpen] = useState(false);
   const { skip, limit } = useParams();
 
   const skipPage = skip || 0;
@@ -39,6 +40,10 @@ function HomePage() {
     setRecipes(recipes);
   };
 
+  const handleIsFilterOpen = (bool) => {
+    setIsFilterOpen(bool)
+  }
+
   return (
     <>
       <Helmet>
@@ -46,9 +51,11 @@ function HomePage() {
       </Helmet>
       <header>
         <h1>Сборник рецептов из разных стран мира</h1>
+        <button  onClick={() => handleIsFilterOpen(!isFilterOpen)}><img src='/images/icon/filter.svg' alt='filter icon' title='filter'/></button>
       </header>
       <main>
-        {recipes && <RecipesSearchComponent handleRecipes={handleRecipes} recipes={recipes} />}
+        {recipes && <RecipesSearchComponent handleRecipes={handleRecipes} recipes={recipes} 
+        handleIsFilterOpen={handleIsFilterOpen} filterOpen={isFilterOpen} />}
         {recipes && <RecipesComponent recipes={recipes} skipPage={skipPage} limitPage={limitPage} />}
       </main>
     </>

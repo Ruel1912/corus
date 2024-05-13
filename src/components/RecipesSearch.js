@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { fetchCuisines, fetchMealTypes, fetchRecipe } from '../api/recipesApi';
 import FilterForm from './form/FilterForm';
 
-function RecipesSearchComponent({ handleRecipes, recipes }) {
+function RecipesSearchComponent({ handleRecipes, recipes, handleIsFilterOpen, filterOpen }) {
 
   const [cuisines, setCuisines] = useState(null);
   const [mealTypes, setMealTypes] = useState(null);
@@ -62,8 +62,10 @@ function RecipesSearchComponent({ handleRecipes, recipes }) {
     return;
   }
 
+  console.log(filterOpen);
   return (
-    <div className='recipes-search'>
+    <div className={filterOpen ? 'recipes-search active' : 'recipes-search'} >
+    <button className='recipes-search-close' onClick={() => handleIsFilterOpen(!filterOpen)}><img src='/images/icon/cross.svg' alt='x' title='cross' /></button>
       <div className='recipes-search-header'>
         <div className='recipes-search-image'>
           <img src='/images/form_search_bg.webp' alt='backgroundg food' />
