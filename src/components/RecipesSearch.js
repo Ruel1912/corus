@@ -62,7 +62,6 @@ function RecipesSearchComponent({ handleRecipes, recipes, handleIsFilterOpen, fi
     return;
   }
 
-  console.log(filterOpen);
   return (
     <div className={filterOpen ? 'recipes-search active' : 'recipes-search'} >
     <button className='recipes-search-close' onClick={() => handleIsFilterOpen(!filterOpen)}><img src='/images/icon/cross.svg' alt='x' title='cross' /></button>
