@@ -6,7 +6,6 @@ function RecipesSearchComponent({ handleRecipes, recipes }) {
 
   const [cuisines, setCuisines] = useState(null);
   const [mealTypes, setMealTypes] = useState(null);
-  const [randomRecipe, setRandomRecipe] = useState(null);
 
   const difficultButtons = [
     { label: 'Любая', isActive: true, isDisabled: false, value: 'all' },
@@ -14,22 +13,6 @@ function RecipesSearchComponent({ handleRecipes, recipes }) {
     { label: 'Средняя', isActive: false, isDisabled: false, value: 'Medium' },
     { label: 'Высокая', isActive: false, isDisabled: true, value: 'Hard' },
   ]
-
-  useEffect(() => {
-    const fetchRandomRecipe = async () => {
-      try {
-        let id = Math.floor(Math.random() * recipes.total);
-        const recipesData = await fetchRecipe(id || 1);
-        setRandomRecipe(recipesData);
-      } catch (error) {
-        console.error(error);
-      }
-    };
-
-    if (randomRecipe) {
-      fetchRandomRecipe();
-    }
-  }, [randomRecipe, recipes.total]);
 
   useEffect(() => {
     const fetchCuisinesData = async () => {
@@ -61,14 +44,17 @@ function RecipesSearchComponent({ handleRecipes, recipes }) {
     }
   }, [mealTypes]);
 
-  const generateRandomRecipe = () => {
+  const generateRandomRecipe = async() => {
+    let id = Math.floor(Math.random() * localStorage.getItem('total'));
+    const recipe = await fetchRecipe(id || 1);
     const data = {
-      recipes: [randomRecipe],
-      total: recipes.total,
+      recipes: [ recipe ],
+      total: 1,
       skip: 0,
       limit: 1
     }
 
+    localStorage.setItem('filter-total', 1);
     handleRecipes(data);
   }
 
@@ -88,22 +74,7 @@ function RecipesSearchComponent({ handleRecipes, recipes }) {
           <p>Наш сервис поможет: выбирайте параметры - и вперед!</p>
         </div>
       </div>
-      <FilterForm cuisines={cuisines} mealTypes={mealTypes} difficultButtons={difficultButtons} handleRecipes={handleRecipes} recipes={recipes} />
-      {/* <form className='recipes-search-body' method='post'>
-        <div className='form-row'>
-          <label>Кухня:</label>
-          {cuisines && <Dropdown title="Все страны и регионы" options={cuisines} name='cuisine' />}
-        </div>
-        <div className='form-row'>
-          <label>Тип блюда:</label>
-          {mealTypes && <Dropdown title="Все типы" options={mealTypes} name='meal-type' />}
-        </div>
-        <div className='form-row'>
-          <label>Сложность приготовления:</label>
-          <RadioButtonGroup options={difficultButtons} />
-        </div>
-        <Link to='/' className='form-reset'>Сбросить все фильтры</Link>
-      </form> */}
+      <FilterForm cuisines={cuisines} mealTypes={mealTypes} difficultButtons={difficultButtons} handleRecipes={handleRecipes} />
       <div className='recipes-search-footer'>
         <p>А еще можно попробовать на вкус удачу</p>
         <button type='button' className='form-generator' onClick={generateRandomRecipe}>Мне повезет</button>

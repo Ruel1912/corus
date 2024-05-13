@@ -52,6 +52,9 @@ export function getCuisine(cuisine) {
     russian: 'Русская',
     lebanese: 'Ливанская',
     brazilian: 'Бразильская',
+    spanish: 'Испанская',
+    vietnamese : 'Вьетнамская',
+    hawaiian: 'Гавайская',
   };
 
   return cuisineTransform[cuisine && cuisine.toLowerCase()] || cuisine;

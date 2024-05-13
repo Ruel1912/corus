@@ -4,17 +4,20 @@ import RecipesPagination from './RecipesPagination';
 function RecipesComponent({ recipes, skipPage, limitPage }) {
   let { recipes: recipesData, total } = recipes
 
+  total = localStorage.getItem('filter-total') || total;
+  
   if (!recipesData) {
     return (<p>Загрузка...</p>)
-  }
-  return recipesData && (
+  } 
+
+  return (
     <div className='recipes'>
       <div className='recipes-header'>
         <h2 className='recipes-header-title'>Найденные рецепты <span>{total}</span></h2>
       </div>
-      <div className='recipes-body'>
+      <div className={recipesData.length ? 'recipes-body' : 'hide'}>
         <div className='recipes-items'>
-          {recipesData.map((recipe, recipeKey) => <RecipeCardComponent key={recipeKey} data={recipe} />)}
+          {recipesData && recipesData.map((recipe, recipeKey) => recipeKey <= 5 && <RecipeCardComponent key={recipeKey} data={recipe} />)}
         </div>
         {total > 6 && <RecipesPagination total={total} skip={skipPage} limit={limitPage} />}
       </div>

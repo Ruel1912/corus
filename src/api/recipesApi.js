@@ -35,17 +35,6 @@ export const fetchRecipe = async (id) => {
   }
 };
 
-export const findByMealType = async (mealtype) => {
-  try {
-    const response = await axios.get(`${API_URL}/recipes/meal-type/${mealtype}`);
-    return response.data;
-  } catch (error) {
-    console.error('Error fetching meal types:', error);
-    throw error;
-  }
-};
-
-
 export const fetchCuisines = () => {
   return axios.get(`${API_URL}/recipes?select=cuisine`)
     .then(response => {

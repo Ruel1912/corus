@@ -16,7 +16,11 @@ function HomePage() {
   useEffect(() => {
     localStorage.setItem('skip', skipPage);
     localStorage.setItem('limit', limitPage);
-  }, [skipPage, limitPage]);
+
+    if (!localStorage.getItem('total')) {
+      localStorage.setItem('total', recipes.total)
+    }
+  }, [skipPage, limitPage, recipes]);
 
   useEffect(() => {
     const fetchRecipesData = async (limitPage, skipPage) => {
@@ -38,7 +42,7 @@ function HomePage() {
   return (
     <>
       <Helmet>
-        <title>Список рецептов{skipPage !== 0 ? `. Страница ${Math.ceil(skipPage / limitPage) + 1}` : ''}</title>
+        <title>Список рецептов</title>
       </Helmet>
       <header>
         <h1>Сборник рецептов из разных стран мира</h1>
