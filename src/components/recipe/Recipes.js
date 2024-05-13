@@ -15,7 +15,7 @@ function RecipesComponent({ recipes, skipPage, limitPage }) {
       <div className='recipes-header'>
         <h2 className='recipes-header-title'>Найденные рецепты <span>{total}</span></h2>
       </div>
-      <div className={recipesData.length ? 'recipes-body' : 'hide'}>
+      <div className='recipes-body'>
         <div className='recipes-items'>
           {recipesData && recipesData.map((recipe, recipeKey) => recipeKey <= 5 && <RecipeCardComponent key={recipeKey} data={recipe} />)}
         </div>

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import RecipesSearchComponent from '../components/recipe/RecipesSearch';
+import RecipesSearchComponent from '../components/RecipesSearch';
 import RecipesComponent from '../components/recipe/Recipes';
 import { Helmet } from 'react-helmet';
 import { useParams } from 'react-router-dom';

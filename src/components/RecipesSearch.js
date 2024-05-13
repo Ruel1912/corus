@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { fetchCuisines, fetchMealTypes, fetchRecipe } from '../../api/recipesApi';
-import FilterForm from '../form/FilterForm';
+import { fetchCuisines, fetchMealTypes, fetchRecipe } from '../api/recipesApi';
+import FilterForm from './form/FilterForm';
 
 function RecipesSearchComponent({ handleRecipes, recipes }) {
 
@@ -46,7 +46,7 @@ function RecipesSearchComponent({ handleRecipes, recipes }) {
 
   const generateRandomRecipe = async() => {
     let id = Math.floor(Math.random() * localStorage.getItem('total'));
-    const recipe = await fetchRecipe(id || 1);
+    const recipe = await fetchRecipe(id);
     const data = {
       recipes: [ recipe ],
       total: 1,

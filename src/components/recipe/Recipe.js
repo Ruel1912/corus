@@ -35,7 +35,7 @@ function Recipe() {
         <Link to={skip === 0 ? '/' : `/recipes/${skip}/${limit}`}><img src='/images/icon/arrow_left.svg' title='back' alt='back' /></Link>
         <h1>{recipe.name}</h1>
       </header>
-      <main>
+      <main className='recipe-main'>
         <div className='recipe-info'>
           <div className='recipe-info-col'>
             <div className='recipe-info-block'>
