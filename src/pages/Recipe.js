@@ -32,7 +32,7 @@ function Recipe() {
         <title>{recipe.name}</title>
       </Helmet>
       <header>
-        <Link to={skip === 0 ? '/' : `/recipes/${skip}/${limit}`}><img src='/images/icon/arrow_left.svg' title='back' alt='back' /></Link>
+        <Link to={skip === 0 ? '/' : `/recipes/${skip}/${limit}`}><img src='/public/images/icon/arrow_left.svg' title='back' alt='back' /></Link>
         <h1>{recipe.name}</h1>
       </header>
       <main className='recipe-main'>

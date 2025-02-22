@@ -30,7 +30,7 @@ const Dropdown = ({ title, options, name, handleSelect }) => {
     <div className="custom-dropdown" data-name={name}>
       <div className="dropdown-header" onClick={toggleDropdown}>
         <span>{selectedOption ? selectedOption : title || 'Select'}</span>
-        <img src={isOpen ? '/images/icon/arrow_up.svg' : '/images/icon/arrow_down.svg'} alt={isOpen ? '&#9650;' : '&#9660;'} />
+        <img src={isOpen ? '/public/images/icon/arrow_up.svg' : '/public/images/icon/arrow_down.svg'} alt={isOpen ? '&#9650;' : '&#9660;'} />
       </div>
       {isOpen && (
         <div className="dropdown-options">

@@ -15,7 +15,7 @@ function RecipeCardComponent({data}) {
       <div className='recipe-right'>
         <p className='recipe-desc secondary-text'>{Array.from(data.instructions).join(' ')}</p>
         <div className='recipe-row recipe-time'>
-          <img src='/images/icon/time.svg' alt='time icon' />
+          <img src='/public/images/icon/time.svg' alt='time icon' />
           <span>{ getTotalCookieTime(data.prepTimeMinutes, data.cookTimeMinutes) } минут</span>
         </div>
         <div className='recipe-row recipe-difficult'>Сложность: { <DifficultStars difficult={data.difficulty} />  }</div>
