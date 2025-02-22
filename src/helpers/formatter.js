@@ -4,8 +4,8 @@ export function getTotalCookieTime(prevTime, cookieTime) {
 
 export function DifficultStars({ difficult }) {
 
-  const emptyStarPath = '/public/images/icon/empty_star.svg';
-  const fillStarPath = '/public/images/icon/fill_star.svg';
+  const emptyStarPath = './images/icon/empty_star.svg';
+  const fillStarPath = './images/icon/fill_star.svg';
   const maxDifficult = 3;
 
   const difficultTransform = {

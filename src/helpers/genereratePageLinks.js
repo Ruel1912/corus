@@ -9,7 +9,7 @@ export function generatePageLinks(total, skip, limit) {
   // Выводим ссылку на предыдущую страницу
   links.push(
     <Link key="prev" to={`/recipes/${(currentPage - 2) * limit}/${limit}`} className={currentPage === 1 ? "disabled" : ''}>
-      <img src="/public/images/icon/back.svg" alt="<" />
+      <img src="./images/icon/back.svg" alt="<" />
     </Link>
   );
 
@@ -23,7 +23,7 @@ export function generatePageLinks(total, skip, limit) {
   if (currentPage > 4) {
     links.push(
       <span key="start-ellipsis" className="ellipsis">
-        <img src="/public/images/icon/dots.svg" alt="..." />
+        <img src="./images/icon/dots.svg" alt="..." />
       </span>
     );
   }
@@ -44,7 +44,7 @@ export function generatePageLinks(total, skip, limit) {
   if (currentPage < totalPages - 3) {
     links.push(
       <span key="end-ellipsis" className="ellipsis">
-        <img src="/public/images/icon/dots.svg" alt="..." />
+        <img src="./images/icon/dots.svg" alt="..." />
       </span>
     );
   }
@@ -57,7 +57,7 @@ export function generatePageLinks(total, skip, limit) {
   // Выводим ссылку "next"
   links.push(
     <Link key="next" to={`/recipes/${currentPage * limit}/${limit}`} className={currentPage === totalPages ? "disabled" : ''}>
-      <img src="/public/images/icon/next.svg" alt=">" />
+      <img src="./images/icon/next.svg" alt=">" />
     </Link>
   );
 

@@ -64,7 +64,7 @@ function RecipesSearchComponent({ handleRecipes, recipes, handleIsFilterOpen, fi
 
   return (
     <div className={filterOpen ? 'recipes-search active' : 'recipes-search'} >
-    <button className='recipes-search-close' onClick={() => handleIsFilterOpen(!filterOpen)}><img src='/public/images/icon/cross.svg' alt='x' title='cross' /></button>
+    <button className='recipes-search-close' onClick={() => handleIsFilterOpen(!filterOpen)}><img src='./images/icon/cross.svg' alt='x' title='cross' /></button>
       <div className='recipes-search-header'>
         <div className='recipes-search-image'>
           <img src='/images/form_search_bg.webp' alt='backgroundg food' />

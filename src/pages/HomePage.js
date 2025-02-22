@@ -51,7 +51,7 @@ function HomePage() {
       </Helmet>
       <header>
         <h1>Сборник рецептов из разных стран мира</h1>
-        <button  onClick={() => handleIsFilterOpen(!isFilterOpen)}><img src='/public/images/icon/filter.svg' alt='filter icon' title='filter'/></button>
+        <button  onClick={() => handleIsFilterOpen(!isFilterOpen)}><img src='./images/icon/filter.svg' alt='filter icon' title='filter'/></button>
       </header>
       <main>
         {recipes && <RecipesSearchComponent handleRecipes={handleRecipes} recipes={recipes} 
