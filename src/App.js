@@ -5,7 +5,7 @@ import Recipe from './pages/Recipe';
 
 function App() {
   return (
-    <Router basename='/corus'>
+    <Router basename='/corus/'>
       <Routes>
         <Route exact path="/" element={<HomePage />} />
         <Route exact path="/recipes/:skip/:limit" element={<HomePage />} />
