@@ -9,7 +9,7 @@ function RecipeCardComponent({data}) {
       <div className='recipe-left'>
         <h3 className='recipe-title'> <Link to={`/recipe/${data.id}`} className="recipe-link">{data.name}</Link></h3>
         <div className='recipe-image'>
-          <img src={ data.image || '/images/recipe_placeholder.svg'} alt='recipe_image' />
+          <img src={ data.image || './images/recipe_placeholder.svg'} alt='recipe_image' />
         </div>
       </div>
       <div className='recipe-right'>

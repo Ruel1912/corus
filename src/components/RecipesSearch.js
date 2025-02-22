@@ -67,7 +67,7 @@ function RecipesSearchComponent({ handleRecipes, recipes, handleIsFilterOpen, fi
     <button className='recipes-search-close' onClick={() => handleIsFilterOpen(!filterOpen)}><img src='./images/icon/cross.svg' alt='x' title='cross' /></button>
       <div className='recipes-search-header'>
         <div className='recipes-search-image'>
-          <img src='/images/form_search_bg.webp' alt='backgroundg food' />
+          <img src='./images/form_search_bg.webp' alt='background food' />
         </div>
         <div className='recipes-search-text'>
           <p>В нашей жизни, когда время становится все более ценным ресурсом, задача планирования приема пищи становится все более сложной.</p>
